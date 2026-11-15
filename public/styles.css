@@ -778,3 +778,156 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Ambient Floating Game Fireflies */
+.ambient-fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.site-header, main, .site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.af {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-firefly);
+  box-shadow: 0 0 14px 3px color-mix(in srgb, var(--accent-firefly) 65%, transparent);
+  opacity: 0.32;
+}
+
+.af-1 { top: 14%; left: 8%; }
+.af-2 { top: 28%; left: 88%; }
+.af-3 { top: 56%; left: 6%; }
+.af-4 { top: 72%; left: 92%; }
+.af-5 { top: 42%; left: 50%; }
+.af-6 { top: 86%; left: 22%; }
+
+/* Hero Game Key-Art Frame */
+.verdict-art-wrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  aspect-ratio: 1200 / 630;
+  background: #0d1f18;
+}
+
+.verdict-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.live-beacon {
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(8, 16, 13, 0.82);
+  backdrop-filter: blur(6px);
+  color: #f1f6f3;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+.beacon-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+}
+
+/* Stealth Tactics Card SVG Graphics */
+.card-gfx {
+  margin-bottom: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-deep);
+  border: 1px solid var(--border-subtle);
+  display: inline-flex;
+  color: var(--text-secondary);
+}
+
+.info-card {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent-firefly) 45%, transparent);
+}
+
+.tile {
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.tile:hover {
+  transform: translateY(-4px) rotate(-2deg);
+  box-shadow: 0 8px 0 #b8a374;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .af-1 { animation: float-ff 11s ease-in-out infinite; }
+  .af-2 { animation: float-ff 14s ease-in-out infinite reverse; }
+  .af-3 { animation: float-ff 13s ease-in-out 1.5s infinite; }
+  .af-4 { animation: float-ff 10s ease-in-out 0.8s infinite reverse; }
+  .af-5 { animation: float-ff 15s ease-in-out 2s infinite; }
+  .af-6 { animation: float-ff 12s ease-in-out 1s infinite; }
+
+  .beacon-dot {
+    animation: pulse-ring 1.8s ease-in-out infinite;
+  }
+  .gfx-pulse {
+    animation: pulse-ring 2s ease-in-out infinite;
+    transform-origin: center;
+  }
+  .gfx-sweep {
+    animation: sweep-cone 3.2s ease-in-out infinite alternate;
+  }
+  .gfx-float {
+    animation: bob-orb 2.4s ease-in-out infinite;
+  }
+  .gfx-orb {
+    animation: dart-orb 2.8s ease-in-out infinite;
+  }
+}
+
+@keyframes float-ff {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.28; }
+  50% { transform: translate(24px, -32px) scale(1.35); opacity: 0.65; }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.35); opacity: 0.35; }
+}
+
+@keyframes sweep-cone {
+  0% { transform: rotate(-14deg); }
+  100% { transform: rotate(18deg); }
+}
+
+@keyframes bob-orb {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes dart-orb {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(26px, -10px); }
+}
