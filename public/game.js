@@ -44,8 +44,16 @@
     document.getElementById("play").scrollIntoView({ behavior: "smooth" });
   });
 
-  // --- Biome Switcher ---
+  // --- Biome & Theme Switcher ---
+  const THEME_KEY = "mottle_theme_v1";
   const BIOMES = {
+    daylight: {
+      base: "#243b2c",
+      patches: ["#2c4a36", "#375a40", "#436647", "#2e483c", "#4d6b43", "#365445", "#263e30"],
+      speckle: "rgba(251, 191, 36, 0.14)",
+      accent: "#fbbf24",
+      stroke: "rgba(110, 231, 183, 0.65)"
+    },
     forest: {
       base: "#11221a",
       patches: ["#132a20", "#1b3a2b", "#234936", "#192b33", "#263b2a", "#2e3f27", "#16231c"],
@@ -69,8 +77,22 @@
     }
   };
 
-  let currentBiome = "forest";
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  let currentBiome = savedTheme && BIOMES[savedTheme] ? savedTheme : "daylight";
   const biomeBtns = document.querySelectorAll("[data-biome-pick]");
+
+  function applyTheme(name, regen = true) {
+    if (!BIOMES[name]) return;
+    currentBiome = name;
+    document.body.dataset.biome = name;
+    localStorage.setItem(THEME_KEY, name);
+    biomeBtns.forEach((b) => {
+      const active = b.dataset.biomePick === name;
+      b.classList.toggle("is-active", active);
+      b.setAttribute("aria-pressed", String(active));
+    });
+    if (regen) generateTerrain();
+  }
 
   // --- Hide & Seek Canvas Engine ---
   const canvas = document.getElementById("mottle-canvas");
@@ -136,13 +158,9 @@
   }
 
   biomeBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      currentBiome = btn.dataset.biomePick;
-      document.body.dataset.biome = currentBiome;
-      biomeBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
-      generateTerrain();
-    });
+    btn.addEventListener("click", () => applyTheme(btn.dataset.biomePick, true));
   });
+  applyTheme(currentBiome, false);
 
   function sampleTerrainRGB(x, y) {
     if (!terrainPixels) return [24, 52, 38];

@@ -22,6 +22,23 @@
   <!-- Inline Critical CSS -->
   <style>
     :root {
+      color-scheme: light;
+      --bg-deep: #f6f3ea;
+      --bg-surface: #ffffff;
+      --bg-elevated: #ece7d9;
+      --border-subtle: rgba(19, 34, 26, 0.12);
+      --text-primary: #14241c;
+      --text-secondary: #4a5e53;
+      --accent-firefly: #d97706;
+      --accent-moss: #0f766e;
+      --accent-alert: #dc2626;
+      --btn-primary-text: #ffffff;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --max-w: 1120px;
+    }
+    [data-biome="forest"] {
+      color-scheme: dark;
       --bg-deep: #070d0b;
       --bg-surface: #0e1915;
       --bg-elevated: #15241e;
@@ -31,26 +48,36 @@
       --accent-firefly: #f5c451;
       --accent-moss: #34d399;
       --accent-alert: #f87171;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --max-w: 1120px;
+      --btn-primary-text: #141004;
     }
     [data-biome="tidepool"] {
+      color-scheme: dark;
       --bg-deep: #060d14;
       --bg-surface: #0c1926;
       --bg-elevated: #122638;
+      --border-subtle: rgba(125, 211, 252, 0.15);
+      --text-primary: #eff6ff;
+      --text-secondary: #94b3cc;
       --accent-firefly: #38bdf8;
       --accent-moss: #2dd4bf;
+      --accent-alert: #f87171;
+      --btn-primary-text: #04131d;
     }
     [data-biome="ember"] {
+      color-scheme: dark;
       --bg-deep: #110908;
       --bg-surface: #1d110f;
       --bg-elevated: #2a1815;
+      --border-subtle: rgba(251, 146, 60, 0.18);
+      --text-primary: #fdf4f0;
+      --text-secondary: #c9a79b;
       --accent-firefly: #fb923c;
       --accent-moss: #fbbf24;
+      --accent-alert: #f87171;
+      --btn-primary-text: #1c0b04;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html { color-scheme: dark; scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -152,21 +179,29 @@
   }
   </script>
 </head>
-<body data-biome="forest">
+<body data-biome="daylight">
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top">
         <span class="brand-dot" aria-hidden="true"></span>
         <span>IsMottleAGame<span class="brand-tld">.net</span></span>
       </a>
-      <nav aria-label="Primary navigation">
-        <ul class="nav-list">
-          <li><a href="#play">Play 2 Modes</a></li>
-          <li><a href="#how-to-play">Stealth Rules</a></li>
-          <li><a href="#word-meaning">Scrabble &amp; Wordplay</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </nav>
+      <div class="header-right">
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="#play">Play</a></li>
+            <li><a href="#how-to-play">Tactics</a></li>
+            <li><a href="#word-meaning">Wordplay</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <div class="theme-switcher" role="group" aria-label="Color Theme">
+          <button type="button" class="theme-dot is-active" data-biome-pick="daylight" aria-pressed="true" title="Daylight Paper">Day</button>
+          <button type="button" class="theme-dot" data-biome-pick="forest" aria-pressed="false" title="Midnight Moss">Moss</button>
+          <button type="button" class="theme-dot" data-biome-pick="tidepool" aria-pressed="false" title="Abyssal Tidepool">Tide</button>
+          <button type="button" class="theme-dot" data-biome-pick="ember" aria-pressed="false" title="Ember Terrarium">Ember</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -204,11 +239,12 @@
               <p>Verb / Noun &bull; <em>bottle &rarr; mottle</em> (NYT Connections)</p>
             </div>
           </div>
-          <div class="biome-bar" role="group" aria-label="Select Arena Biome">
-            <span class="biome-label">Biome:</span>
-            <button type="button" class="biome-chip is-active" data-biome-pick="forest">Moss</button>
-            <button type="button" class="biome-chip" data-biome-pick="tidepool">Tidepool</button>
-            <button type="button" class="biome-chip" data-biome-pick="ember">Ember</button>
+          <div class="biome-bar" role="group" aria-label="Select Color Theme and Arena Biome">
+            <span class="biome-label">Theme:</span>
+            <button type="button" class="biome-chip is-active" data-biome-pick="daylight" aria-pressed="true">Daylight</button>
+            <button type="button" class="biome-chip" data-biome-pick="forest" aria-pressed="false">Moss</button>
+            <button type="button" class="biome-chip" data-biome-pick="tidepool" aria-pressed="false">Tidepool</button>
+            <button type="button" class="biome-chip" data-biome-pick="ember" aria-pressed="false">Ember</button>
           </div>
         </aside>
       </div>
