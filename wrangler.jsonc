@@ -1,0 +1,17 @@
+{
+  "name": "ismottleagame",
+  "compatibility_date": "2026-11-15",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    {
+      "pattern": "ismottleagame.net",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.ismottleagame.net",
+      "custom_domain": true
+    }
+  ]
+}
