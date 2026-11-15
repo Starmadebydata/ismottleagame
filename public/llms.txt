@@ -1,0 +1,16 @@
+# IsMottleAGame.net
+
+> Independent browser arcade and reference guide answering "Is Mottle a game?" with live playable HTML5 gameplay and verified English word-game data.
+
+## Quick Answer
+- **Is Mottle a game?** Yes. *Mottle - Hide & Seek* is a real-time camouflage survival browser game created by Star Lord and hosted on 8x.gg (`https://www.8x.gg/apps/xPKXL5uurAzb6pAG`).
+- **Is "mottle" a valid Scrabble / word-game word?** Yes. `MOTTLE` is a valid 6-letter English verb and noun worth **10 base points** in Scrabble (M=3, O=1, T=1, T=1, L=1, E=1) and Words With Friends, and has appeared in *NYT Connections* wordplay (`bottle` -> `mottle`).
+- **Is Mottle Game the same as Motel Manager Simulator?** No. "Mottle" refers to spotted/blotched camouflage, not a motel business simulator.
+
+## What You Can Do on IsMottleAGame.net
+- **Play Mottle: Hide & Seek (3 Biomes):** Instant HTML5 Canvas edition with Daylight, Moss, Tidepool, and Ember themes, combo multipliers (x1-x5), Ghost Stealth (+50) bonuses, and Queen Fireflies.
+- **Play Mottle Word Challenge:** An 8-round Scrabble & NYT Connections validity quiz.
+- **Original Creator Link:** Direct link to Star Lord's original build on 8x.gg (`https://www.8x.gg/apps/xPKXL5uurAzb6pAG`).
+
+## Last Updated
+- 2026-11-15
