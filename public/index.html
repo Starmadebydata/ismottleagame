@@ -3,61 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Is Mottle a Game? Play Mottle Hide &amp; Seek Online + Word Meaning</title>
-  <meta name="description" content="Yes! Mottle is both an online camouflage hide-and-seek browser game (Mottle - Hide &amp; Seek) and a valid 6-letter English word in Scrabble &amp; word games. Play Mottle right here in your browser.">
+  <title>Is Mottle a Game? Play Mottle Hide &amp; Seek + Word Challenge</title>
+  <meta name="description" content="Yes! Mottle is both the camouflage hide-and-seek browser game (Mottle - Hide &amp; Seek) and a valid 6-letter Scrabble &amp; NYT Connections word. Play both modes live here.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ismottleagame.net/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Is Mottle a Game? Play Mottle Hide &amp; Seek Online">
-  <meta property="og:description" content="Play Mottle Hide &amp; Seek right in your browser, learn the camouflage controls, and check if 'mottle' is a valid word in Scrabble &amp; NYT Connections.">
+  <meta property="og:title" content="Is Mottle a Game? Play Mottle Hide &amp; Seek + Word Challenge">
+  <meta property="og:description" content="Play Mottle Hide &amp; Seek across 3 camouflage biomes with Ghost Stealth combos, or test your vocabulary in the Mottle Word Challenge.">
   <meta property="og:url" content="https://ismottleagame.net/">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Is Mottle a Game? Play Mottle Hide &amp; Seek Online">
-  <meta name="twitter:description" content="Drag to move, release to blend into the ground, collect fireflies, and evade Seeker lights.">
+  <meta name="twitter:title" content="Is Mottle a Game? Play Mottle Hide &amp; Seek + Word Challenge">
+  <meta name="twitter:description" content="Drag to move, release to blend into mottled terrain, earn Ghost Stealth bonuses, and play the Mottle Word Challenge.">
 
-  <!-- Inline Critical CSS for instant First Contentful Paint -->
+  <!-- Inline Critical CSS -->
   <style>
     :root {
-      --bg-deep: #08100d;
-      --bg-surface: #101c17;
-      --bg-elevated: #16261f;
+      --bg-deep: #070d0b;
+      --bg-surface: #0e1915;
+      --bg-elevated: #15241e;
       --border-subtle: rgba(167, 243, 208, 0.14);
-      --text-primary: #eef5f1;
-      --text-secondary: #a7bdb1;
+      --text-primary: #f1f6f3;
+      --text-secondary: #9eb5a9;
       --accent-firefly: #f5c451;
       --accent-moss: #34d399;
       --accent-alert: #f87171;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --max-w: 1080px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --max-w: 1120px;
+    }
+    [data-biome="tidepool"] {
+      --bg-deep: #060d14;
+      --bg-surface: #0c1926;
+      --bg-elevated: #122638;
+      --accent-firefly: #38bdf8;
+      --accent-moss: #2dd4bf;
+    }
+    [data-biome="ember"] {
+      --bg-deep: #110908;
+      --bg-surface: #1d110f;
+      --bg-elevated: #2a1815;
+      --accent-firefly: #fb923c;
+      --accent-moss: #fbbf24;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html {
-      color-scheme: dark;
-      scroll-behavior: smooth;
-    }
+    html { color-scheme: dark; scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at 50% 0%, #12241c 0%, var(--bg-deep) 60%);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--accent-moss) 18%, transparent), transparent),
+        var(--bg-deep);
       color: var(--text-primary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.35s ease;
     }
-    .container {
-      width: min(100% - 2rem, var(--max-w));
-      margin-inline: auto;
-    }
+    .container { width: min(100% - 2rem, var(--max-w)); margin-inline: auto; }
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(8, 16, 13, 0.85);
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg-deep) 84%, transparent);
       border-bottom: 1px solid var(--border-subtle);
     }
     .header-inner {
@@ -65,29 +76,28 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding-block: 0.75rem;
+      padding-block: 0.7rem;
     }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       color: var(--text-primary);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
     .brand-dot {
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       background: var(--accent-firefly);
-      box-shadow: 0 0 12px var(--accent-firefly);
+      box-shadow: 0 0 14px var(--accent-firefly);
     }
   </style>
 
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Structured Data: VideoGame + FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,8 +105,8 @@
       {
         "@type": "VideoGame",
         "name": "Mottle - Hide & Seek",
-        "description": "A camouflage hide-and-seek browser game where players drag to move, release to blend into mottled terrain, collect fireflies, and evade sweeping Seeker lights.",
-        "genre": ["Stealth", "Arcade", "Browser Game"],
+        "description": "A camouflage hide-and-seek browser game with 3 biomes, combo streaks, and Ghost Stealth bonuses, plus a playable Mottle Word Challenge.",
+        "genre": ["Stealth", "Arcade", "Word Puzzle", "Browser Game"],
         "playMode": "SinglePlayer",
         "applicationCategory": "Game",
         "operatingSystem": "Web Browser"
@@ -109,7 +119,7 @@
             "name": "Is Mottle a game?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Mottle - Hide & Seek is a browser camouflage survival game created by Star Lord and hosted on 8x.gg. In addition, 'mottle' is a valid 6-letter English word (worth 10 points in Scrabble) frequently searched by word-game players."
+              "text": "Yes. Mottle - Hide & Seek is a camouflage browser game created by Star Lord on 8x.gg. In addition, 'mottle' is a valid 6-letter English word (worth 10 points in Scrabble) featured in word puzzles like NYT Connections."
             }
           },
           {
@@ -117,7 +127,7 @@
             "name": "How do you play Mottle - Hide & Seek?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Drag with your mouse or finger (or use WASD/Arrow keys) to move toward glowing fireflies. Release to stop moving so your Camo meter builds and you blend into the ground color beneath you before Seeker light cones sweep past."
+              "text": "Drag with your mouse or finger (or use WASD/Arrow keys) to collect glowing fireflies. Release to stop moving so your Camo meter rises and you blend into the mottled terrain before Seeker light cones sweep past."
             }
           },
           {
@@ -133,7 +143,7 @@
             "name": "Can you play Mottle on mobile without downloading an APK?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Mottle runs directly in mobile and desktop web browsers with touch-friendly drag-and-release controls. No standalone APK or installer is required."
+              "text": "Yes. Both the Hide & Seek game and the Word Challenge run directly in mobile and desktop web browsers with touch-friendly controls. No APK or installer is required."
             }
           }
         ]
@@ -142,18 +152,18 @@
   }
   </script>
 </head>
-<body>
+<body data-biome="forest">
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span>IsMottleAGame</span>
+        <span>IsMottleAGame<span class="brand-tld">.net</span></span>
       </a>
       <nav aria-label="Primary navigation">
         <ul class="nav-list">
-          <li><a href="#play">Play Now</a></li>
-          <li><a href="#how-to-play">How to Play</a></li>
-          <li><a href="#word-meaning">Word Guide</a></li>
+          <li><a href="#play">Play 2 Modes</a></li>
+          <li><a href="#how-to-play">Stealth Rules</a></li>
+          <li><a href="#word-meaning">Scrabble &amp; Wordplay</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
@@ -161,99 +171,159 @@
   </header>
 
   <main id="top">
-    <!-- Hero + Direct Answer -->
+    <!-- Asymmetric Editorial Split Hero -->
     <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Browser Game &amp; Word Guide</p>
-        <h1 id="hero-title">Is Mottle a Game?</h1>
-        <p class="lead">
-          <strong>Yes — in two ways.</strong> <em>Mottle – Hide &amp; Seek</em> is a camouflage survival browser game (originally by Star Lord on 8x.gg) where you collect fireflies and freeze to blend into the ground. <strong>Mottle</strong> is also a valid 6-letter English word in Scrabble, Words With Friends, and NYT Connections.
-        </p>
-        <div class="answer-pills">
-          <div class="pill">
-            <span class="pill-label">Game Genre</span>
-            <span class="pill-value">Camouflage Hide &amp; Seek</span>
-          </div>
-          <div class="pill">
-            <span class="pill-label">Scrabble Value</span>
-            <span class="pill-value">10 Points (Valid Word)</span>
-          </div>
-          <div class="pill">
-            <span class="pill-label">Controls</span>
-            <span class="pill-value">Drag / Touch / WASD</span>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Field Guide &amp; Dual-Mode Arcade</p>
+          <h1 id="hero-title">Is Mottle a Game?</h1>
+          <p class="lead">
+            <strong>Yes — it&rsquo;s both a viral stealth game and a 10-point word.</strong>
+            <em>Mottle &ndash; Hide &amp; Seek</em> (originally by Star Lord on 8x.gg) challenges you to snatch fireflies and freeze into mottled ground. Meanwhile, <strong>MOTTLE</strong> is a valid Scrabble &amp; NYT Connections word. Play <em>both</em> right below.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#play" class="btn btn-primary btn-lg">Play Hide &amp; Seek</a>
+            <button type="button" id="jump-word-mode" class="btn btn-ghost btn-lg">Try Word Challenge</button>
           </div>
         </div>
+
+        <!-- Unique Interactive Verdict Card -->
+        <aside class="verdict-card" aria-label="Quick Verdict Summary">
+          <div class="verdict-badge">VERDICT: DOUBLE YES</div>
+          <div class="verdict-row">
+            <span class="verdict-tag">01 / ARCADE</span>
+            <div>
+              <strong>Mottle: Hide &amp; Seek</strong>
+              <p>3 Biomes &bull; Ghost Stealth Bonuses &bull; Combo Streaks</p>
+            </div>
+          </div>
+          <div class="verdict-row">
+            <span class="verdict-tag">02 / WORDPLAY</span>
+            <div>
+              <strong>MOTTLE (10 Scrabble Pts)</strong>
+              <p>Verb / Noun &bull; <em>bottle &rarr; mottle</em> (NYT Connections)</p>
+            </div>
+          </div>
+          <div class="biome-bar" role="group" aria-label="Select Arena Biome">
+            <span class="biome-label">Biome:</span>
+            <button type="button" class="biome-chip is-active" data-biome-pick="forest">Moss</button>
+            <button type="button" class="biome-chip" data-biome-pick="tidepool">Tidepool</button>
+            <button type="button" class="biome-chip" data-biome-pick="ember">Ember</button>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Playable Game Arena -->
+    <!-- Dual-Mode Interactive Stage -->
     <section id="play" class="game-section container" aria-labelledby="play-heading">
-      <div class="game-card">
-        <div class="game-header">
-          <div>
-            <h2 id="play-heading">Play Mottle: Hide &amp; Seek Online</h2>
-            <p class="game-subtitle">Drag to move &bull; Release to camouflage &bull; Collect fireflies &bull; Avoid Seeker lights</p>
+      <div class="stage-shell">
+        <div class="stage-top">
+          <div class="tablist" role="tablist" aria-label="Game Modes">
+            <button type="button" role="tab" id="tab-arcade" aria-selected="true">
+              Hide &amp; Seek (3 Biomes)
+            </button>
+            <button type="button" role="tab" id="tab-word" aria-selected="false">
+              Mottle Word Challenge
+            </button>
           </div>
-          <div class="game-actions">
+          <div class="game-actions" id="arcade-controls">
             <button type="button" id="btn-sound" class="btn btn-ghost" aria-pressed="false">Sound: Off</button>
             <button type="button" id="btn-pause" class="btn btn-ghost">Pause</button>
-            <button type="button" id="btn-restart" class="btn btn-primary">New Game</button>
+            <button type="button" id="btn-restart" class="btn btn-primary">New Run</button>
           </div>
         </div>
 
-        <!-- HUD: Always pairs color with numeric text & status -->
-        <div class="hud" aria-live="polite">
-          <div class="hud-stat">
-            <span class="hud-label">Round</span>
-            <strong id="hud-round" class="hud-val">1</strong>
-          </div>
-          <div class="hud-stat">
-            <span class="hud-label">Score</span>
-            <strong id="hud-score" class="hud-val">0</strong>
-          </div>
-          <div class="hud-stat">
-            <span class="hud-label">Best</span>
-            <strong id="hud-best" class="hud-val">0</strong>
-          </div>
-          <div class="hud-meter">
-            <div class="meter-top">
-              <span class="hud-label">Camo</span>
-              <span id="hud-camo-text" class="meter-num">100% (Hidden)</span>
+        <!-- Panel 1: Hide & Seek Arcade -->
+        <div id="panel-arcade" role="tabpanel" aria-labelledby="tab-arcade">
+          <div class="panel-inner">
+            <h2 id="play-heading" class="visually-hidden">Mottle Hide and Seek Arcade</h2>
+            <div class="hud" aria-live="polite">
+              <div class="hud-stat">
+                <span class="hud-label">Round</span>
+                <strong id="hud-round" class="hud-val">1</strong>
+              </div>
+              <div class="hud-stat">
+                <span class="hud-label">Score</span>
+                <strong id="hud-score" class="hud-val">0</strong>
+              </div>
+              <div class="hud-stat">
+                <span class="hud-label">Combo</span>
+                <strong id="hud-combo" class="hud-val">x1</strong>
+              </div>
+              <div class="hud-stat">
+                <span class="hud-label">Best</span>
+                <strong id="hud-best" class="hud-val">0</strong>
+              </div>
+              <div class="hud-meter">
+                <div class="meter-top">
+                  <span class="hud-label">Camo</span>
+                  <span id="hud-camo-text" class="meter-num">100% (Hidden)</span>
+                </div>
+                <div class="meter-track">
+                  <div id="hud-camo-bar" class="meter-fill meter-camo" style="--pct: 100%;"></div>
+                </div>
+              </div>
+              <div class="hud-meter">
+                <div class="meter-top">
+                  <span class="hud-label">Alert</span>
+                  <span id="hud-alert-text" class="meter-num">0% (Safe)</span>
+                </div>
+                <div class="meter-track">
+                  <div id="hud-alert-bar" class="meter-fill meter-alert" style="--pct: 0%;"></div>
+                </div>
+              </div>
             </div>
-            <div class="meter-track">
-              <div id="hud-camo-bar" class="meter-fill meter-camo" style="--pct: 100%;"></div>
-            </div>
-          </div>
-          <div class="hud-meter">
-            <div class="meter-top">
-              <span class="hud-label">Alert</span>
-              <span id="hud-alert-text" class="meter-num">0% (Safe)</span>
-            </div>
-            <div class="meter-track">
-              <div id="hud-alert-bar" class="meter-fill meter-alert" style="--pct: 0%;"></div>
+
+            <div class="arena-wrap">
+              <canvas id="mottle-canvas" width="960" height="540" tabindex="0" aria-label="Mottle Hide and Seek game arena. Drag with mouse or touch, or use arrow keys or WASD to move."></canvas>
+
+              <div id="arena-overlay" class="arena-overlay">
+                <div class="overlay-box">
+                  <h3 id="overlay-title">Mottle: Hide &amp; Seek</h3>
+                  <p id="overlay-desc">
+                    Collect fireflies fast to build <strong>Combo x2–x5</strong>. Freeze before a Seeker light hits you to earn <strong>+50 Ghost Stealth</strong>! Catch rare <strong>Queen Fireflies</strong> to cool Alert.
+                  </p>
+                  <div class="overlay-btns">
+                    <button type="button" id="btn-start" class="btn btn-primary btn-lg">Start Run</button>
+                    <button type="button" id="btn-share" class="btn btn-ghost btn-lg" hidden>Copy Score Card</button>
+                  </div>
+                  <p id="share-feedback" class="share-feedback" aria-live="polite"></p>
+                  <p class="overlay-hint">Drag (Mouse/Touch) or WASD / Arrows &bull; P to Pause</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Canvas Container -->
-        <div class="arena-wrap">
-          <canvas id="mottle-canvas" width="960" height="540" tabindex="0" aria-label="Mottle Hide and Seek game arena. Drag with mouse or touch, or use arrow keys or WASD to move."></canvas>
+        <!-- Panel 2: Mottle Word Challenge -->
+        <div id="panel-word" role="tabpanel" aria-labelledby="tab-word" hidden="until-found">
+          <div class="panel-inner word-game-box">
+            <div class="wg-header">
+              <div>
+                <h2>Mottle Word Challenge: Valid or Bluff?</h2>
+                <p>Test your Scrabble &amp; NYT Connections instincts. Is each 6-letter camouflage or wordplay term valid in standard word games?</p>
+              </div>
+              <div class="wg-score-pill">
+                Streak: <strong id="wg-streak">0</strong> &bull; Score: <strong id="wg-score">0</strong>
+              </div>
+            </div>
 
-          <div id="arena-overlay" class="arena-overlay">
-            <div class="overlay-box">
-              <h3 id="overlay-title">Mottle: Hide &amp; Seek</h3>
-              <p id="overlay-desc">
-                Move across the mottled undergrowth to collect glowing fireflies. When a Seeker's light approaches, <strong>stop moving</strong> to blend into the ground color beneath you.
-              </p>
-              <button type="button" id="btn-start" class="btn btn-primary btn-lg">Start Playing</button>
-              <p class="overlay-hint">Supports Mouse Drag, Touch Drag, and Keyboard (WASD / Arrows)</p>
+            <div class="wg-stage">
+              <div id="wg-tiles" class="scrabble-tiles wg-tiles-center" aria-live="polite"></div>
+              <p id="wg-clue" class="wg-clue">Tap Valid or Bluff to start the 8-word challenge.</p>
+              <div class="wg-actions">
+                <button type="button" id="wg-btn-valid" class="btn btn-primary btn-lg">Valid Word</button>
+                <button type="button" id="wg-btn-bluff" class="btn btn-ghost btn-lg">Bluff / Fake</button>
+                <button type="button" id="wg-btn-next" class="btn btn-outline btn-lg" hidden>Next Word &rarr;</button>
+              </div>
+              <p id="wg-feedback" class="wg-feedback" aria-live="polite"></p>
             </div>
           </div>
         </div>
 
         <div class="game-footer-note">
           <p>
-            <strong>Playable Web Edition:</strong> Runs natively in your browser with zero installs. (The original 8x.gg host blocks third-party <code>iframe</code> embedding via CSP, so you can play our instant HTML5 edition above or launch the original creator page directly.)
+            <strong>Why built-in HTML5?</strong> The original 8x.gg host blocks third-party <code>iframe</code> embedding via CSP, so we built this enhanced 3-biome edition for instant play — plus you can open the creator&rsquo;s original build anytime.
           </p>
           <a class="btn btn-outline" href="https://www.8x.gg/apps/xPKXL5uurAzb6pAG" target="_blank" rel="noopener noreferrer">
             Open Original on 8x.gg
@@ -264,40 +334,40 @@
 
     <!-- How to Play -->
     <section id="how-to-play" class="section container" aria-labelledby="how-heading">
-      <h2 id="how-heading">How to Play Mottle – Hide &amp; Seek</h2>
+      <h2 id="how-heading">Stealth Mechanics &amp; High-Score Tactics</h2>
       <div class="grid-3">
         <article class="info-card">
-          <span class="step-num">01</span>
-          <h3>Make Your Move</h3>
-          <p>Drag with your mouse or one finger (or hold WASD / Arrow keys) to glide toward a glowing firefly. Moving makes you vivid and easy for Seekers to spot.</p>
+          <span class="step-num">01 / MOTION</span>
+          <h3>Sprint for Combos</h3>
+          <p>Chain fireflies within 2.5 seconds to ramp your multiplier up to <strong>x5</strong>. Long drags keep you bright and visible, so plan short hops between patches.</p>
         </article>
         <article class="info-card">
-          <span class="step-num">02</span>
-          <h3>Become the Background</h3>
-          <p>Release your input to freeze in place. Your <strong>Camo</strong> meter rises rapidly, shifting your color to match the mottled ground beneath you.</p>
+          <span class="step-num">02 / CAMOUFLAGE</span>
+          <h3>Earn Ghost Stealth</h3>
+          <p>Release before a Seeker cone arrives. Once Camo hits 75%+, your orb shifts to match the terrain beneath you — letting cones sweep past for a <strong>+50 Ghost Bonus</strong>.</p>
         </article>
         <article class="info-card">
-          <span class="step-num">03</span>
-          <h3>Outlast the Seekers</h3>
-          <p>Avoid getting caught in sweeping Seeker light cones while moving. If your <strong>Alert</strong> meter hits 100%, the round ends. Clear waves of fireflies to advance!</p>
+          <span class="step-num">03 / QUEEN FIREFLY</span>
+          <h3>Hunt the Cyan Queen</h3>
+          <p>Every few seconds a fast cyan-gold Queen Firefly darts across the arena. Catching it awards <strong>3x points</strong> and immediately cools your Alert meter by 35%.</p>
         </article>
       </div>
     </section>
 
-    <!-- Word Meaning & Scrabble Section -->
+    <!-- Word Meaning & Interactive Tile Strip -->
     <section id="word-meaning" class="section container" aria-labelledby="word-heading">
       <div class="word-panel">
         <div>
-          <p class="eyebrow">Dictionary &amp; Word Games</p>
+          <p class="eyebrow">Dictionary &amp; NYT Connections</p>
           <h2 id="word-heading">Is &ldquo;Mottle&rdquo; a Valid Word in Scrabble &amp; Word Games?</h2>
           <p>
-            Many players search <strong>&ldquo;is mottle a game&rdquo;</strong> while playing word puzzles like <em>Scrabble</em>, <em>Words With Friends</em>, or <em>NYT Connections</em>. Yes — <strong>MOTTLE</strong> is a standard English word accepted in official word-game dictionaries.
+            Yes — <strong>MOTTLE</strong> is accepted in official Scrabble (TWL &amp; Collins), Words With Friends, and word-puzzle games. It recently spiked in search after appearing in <em>NYT Connections</em> under a wordplay group changing one letter of baby gear (<strong>b</strong>ottle &rarr; <strong>m</strong>ottle).
           </p>
           <ul class="word-facts">
             <li><strong>Part of speech:</strong> Verb &amp; Noun</li>
-            <li><strong>Meaning:</strong> To mark with spots, streaks, or blotches of different colors or shades (e.g., <em>mottled sunlight through leaves</em>).</li>
-            <li><strong>Scrabble Score:</strong> <strong>10 points</strong> (M=3, O=1, T=1, T=1, L=1, E=1).</li>
-            <li><strong>Related forms:</strong> <em>mottles</em>, <em>mottled</em>, <em>mottling</em>.</li>
+            <li><strong>Definition:</strong> To mark with spots, streaks, or blotches of different colors or shades.</li>
+            <li><strong>Scrabble Base Score:</strong> <strong>10 points</strong> (M=3, O=1, T=1, T=1, L=1, E=1).</li>
+            <li><strong>Inflections:</strong> <em>mottles</em>, <em>mottled</em>, <em>mottling</em>.</li>
           </ul>
         </div>
         <aside class="scrabble-tiles" aria-label="MOTTLE Scrabble letter tiles">
@@ -311,35 +381,35 @@
       </div>
     </section>
 
-    <!-- FAQ Accordion (Native details/summary per modern-web-guidance) -->
+    <!-- FAQ Accordion -->
     <section id="faq" class="section container accordion" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently Asked Questions</h2>
 
       <details open>
         <summary>Is Mottle a game or just a word?</summary>
         <div class="faq-body">
-          <p>It is both. <strong>Mottle – Hide &amp; Seek</strong> is a browser stealth/camouflage game created by Star Lord on 8x.gg, and <strong>mottle</strong> is also a real 6-letter English word meaning spotted or blotched coloring.</p>
+          <p>Both. <strong>Mottle &ndash; Hide &amp; Seek</strong> is a browser camouflage game created by Star Lord on 8x.gg, and <strong>mottle</strong> is a valid 6-letter English word meaning spotted or blotched coloring.</p>
         </div>
       </details>
 
       <details>
         <summary>Can I play Mottle on mobile without downloading an APK?</summary>
         <div class="faq-body">
-          <p>Yes. You do not need to download any standalone APK or installer. The HTML5 game above works directly in mobile Safari and Chrome with one-finger touch drag, and the original 8x.gg listing also runs in the browser.</p>
+          <p>Yes. No APK or download is needed. Both the Hide &amp; Seek arena and the Word Challenge above work natively in mobile Safari and Chrome with touch controls.</p>
         </div>
       </details>
 
       <details>
-        <summary>Why does the page have its own playable version instead of an 8x.gg iframe?</summary>
+        <summary>Why does this site have a custom 3-biome version instead of an 8x.gg iframe?</summary>
         <div class="faq-body">
-          <p>The original 8x.gg game server sends a <code>Content-Security-Policy: frame-ancestors</code> header that blocks third-party websites from embedding it in an iframe. Building a native HTML5 Canvas edition lets you play immediately without a blank frame or login wall, while still linking to the original on 8x.gg.</p>
+          <p>The 8x.gg server sets <code>Content-Security-Policy: frame-ancestors</code>, which blocks third-party websites from embedding it in an iframe. We built a native HTML5 Canvas edition with 3 biomes, Ghost Stealth bonuses, and a Word Challenge so you can play immediately without a broken frame.</p>
         </div>
       </details>
 
       <details>
         <summary>Is Mottle Game the same as Motel Manager Simulator?</summary>
         <div class="faq-body">
-          <p>No. Search results sometimes mix up &ldquo;Mottle&rdquo; with &ldquo;Motel&rdquo; simulator games due to spelling similarity. Mottle – Hide &amp; Seek is a camouflage and firefly-collection game, not a motel management sim.</p>
+          <p>No. Search engines sometimes confuse &ldquo;Mottle&rdquo; with &ldquo;Motel&rdquo; simulator games. Mottle &ndash; Hide &amp; Seek is a camouflage and firefly-collection game.</p>
         </div>
       </details>
     </section>
@@ -347,10 +417,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>IsMottleAGame &mdash; Independent browser guide &amp; playable HTML5 tribute. Original <em>Mottle – Hide &amp; Seek</em> created by Star Lord on <a href="https://www.8x.gg/apps/xPKXL5uurAzb6pAG" target="_blank" rel="noopener noreferrer">8x.gg</a>.</p>
+      <p>IsMottleAGame.net &mdash; Independent dual-mode browser arcade &amp; word guide. Original <em>Mottle &ndash; Hide &amp; Seek</em> by Star Lord on <a href="https://www.8x.gg/apps/xPKXL5uurAzb6pAG" target="_blank" rel="noopener noreferrer">8x.gg</a>.</p>
       <p class="footer-links">
         <a href="#play">Play</a>
-        <a href="#how-to-play">Rules</a>
+        <a href="#how-to-play">Tactics</a>
         <a href="#word-meaning">Scrabble Word</a>
         <a href="#faq">FAQ</a>
       </p>
